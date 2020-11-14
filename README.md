@@ -1,6 +1,6 @@
 ## Small todo app with hooks
 
---- Default create react app stuff
+#### Default create react app stuff follows
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
