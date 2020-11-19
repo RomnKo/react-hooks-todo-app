@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import Todo from './components/Todo';
 import TodoForm from './components/Form';
-// import List from './components/List';
 
 function App() {
     const [todos, setTodos] = useState([]);
@@ -49,7 +48,7 @@ function App() {
 
     return (
         <div className="app">
-            {windowWidth}
+            <div>JUST (to)DO IT!</div>{windowWidth}
             <div className="todo-list">
                 {todos.map((todo, index) => (
                     <Todo

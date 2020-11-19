@@ -1,11 +1,17 @@
 :root {
-    --colorBlack: 0,0,0;
+    --colorBlack: 40,40,40;
+    --colorWhite: 245,245,245;
     --boxShadow: 0 2px 4px rgba(var(--colorBlack), 0.1);
 }
-
+@media (prefers-color-scheme: dark) {
+    .app {
+        color: var(--colorWhite);
+        background: linear-gradient(0deg, rgb(080,093,095) 0%, rgb(123 115 097) 100%);
+    }
+}
 .app {
-    background: #456;
-    background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+    background: linear-gradient(0deg, rgb(180,193,195) 0%, rgb(223 215 197) 100%);
+    color: var(--colorBlack);
     background-attachment: fixed;
     padding: 30px;
     margin: 0 auto;
@@ -14,12 +20,10 @@
     font-family: monospace;
     font-size: 16px;
     line-height: 24px;
+    letter-spacing: 1px;
 }
 
 .todo-list {
-    background: rgba(255,255,255,.2);
-    border-radius: 5px;
-    padding: 10px;
     max-width: 600px;
 }
 
@@ -31,7 +35,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow: var(--boxShadow);
+    box-shadow: var(--boxShadow), inset 0 1px rgba(255,255,255,.2);
     transition: ease 120ms background;
 }
 
@@ -41,6 +45,7 @@
     font-size: inherit;
     font-weight: inherit;
     line-height: inherit;
+    letter-spacing: inherit;
     background: rgba(255,255,255,.4);
     box-shadow: var(--boxShadow);
     outline: none;
@@ -51,12 +56,12 @@
     transition: ease 120ms background, ease 120ms box-shadow;
 }
 
-.input:hover {
+.input:hover, button:hover {
     background: rgba(255,255,255,.7);
     box-shadow: 0 4px 4px rgba(var(--colorBlack), 0.2);
 }
 
-.input:active, .input:focus {
+.input:active, .input:focus, .button:active, .button:focus {
     background: rgba(255,255,255,.9);
     box-shadow: 0 4px 8px rgba(var(--colorBlack), 0.3);
 }
@@ -64,6 +69,22 @@
 .button-wrapper {
     display: grid;
     text-decoration: none;
+}
+
+button {
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+    outline: none;
+    text-transform: uppercase;
+    padding: 2px 12px;
+    border: none;
+    background: rgba(255,255,255,.4);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: ease 120ms background, ease 120ms box-shadow;
 }
 
 button:last-of-type {
