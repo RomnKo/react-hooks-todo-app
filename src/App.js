@@ -8,10 +8,10 @@ function App() {
     // const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
     useEffect(() => {
-        console.log('loaded todos');
         fetch('https://jsonplaceholder.typicode.com/users/1/todos')
-            .then((response) => response.json())
-            .then((json) => setTodos(json))
+        .then((response) => response.json())
+        .then((json) => setTodos(json))
+            console.log('fetched todos');
     }, []);
 
     // useEffect(() => {

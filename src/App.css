@@ -1,15 +1,7 @@
 :root {
     --colorBlack: 40,40,40;
-    --colorWhite: 245,245,245;
+    --colorWhite: 255,255,255;
     --boxShadow: 0 2px 4px rgba(var(--colorBlack), 0.1);
-}
-
-@media (prefers-color-scheme: dark) {
-    .app {
-        color: rgb(var(--colorWhite));
-        /* background: linear-gradient(0deg, rgb(080,093,095) 0%, rgb(123 115 097) 100%); */
-        background: rgb(var(--colorBlack));
-    }
 }
 
 .app {
@@ -40,7 +32,7 @@ h1 {
     line-height: inherit;
     letter-spacing: inherit;
     color: inherit;
-    background: rgba(255,255,255,.4);
+    background: rgba(var(--colorWhite),.4);
     box-shadow: var(--boxShadow);
     outline: none;
     box-sizing: border-box;
@@ -54,12 +46,12 @@ h1 {
 }
 
 .input:hover, button:hover {
-    background: rgba(255,255,255,.7);
+    background: rgba(var(--colorWhite),.7);
     box-shadow: 0 4px 4px rgba(var(--colorBlack), 0.2);
 }
 
 .input:active, .input:focus {
-    background: rgba(255,255,255,.9);
+    background: rgba(var(--colorWhite),.9);
     box-shadow: 0 4px 8px rgba(var(--colorBlack), 0.3);
 }
 
@@ -72,11 +64,11 @@ h1 {
 
 .todo {
     color: inherit;
-    background: rgba(255,255,255,.2);
+    background: rgba(var(--colorWhite),.2);
     border-radius: 5px;
     padding: 15px;
     display: grid;
-    box-shadow: var(--boxShadow), inset 0 1px rgba(255,255,255,.2);
+    box-shadow: var(--boxShadow), inset 0 1px rgba(var(--colorWhite),.2);
     transition: ease 120ms background;
 }
 
@@ -100,7 +92,7 @@ button {
     text-transform: uppercase;
     padding: 2px 12px;
     border: none;
-    background: rgba(255,255,255,.4);
+    background: rgba(var(--colorWhite),.4);
     border-radius: 5px;
     cursor: pointer;
     flex-grow: 1;
@@ -108,6 +100,6 @@ button {
     transition: ease 120ms background, ease 120ms box-shadow;
 }
 button:active {
-    background: rgba(255,255,255,.4);
+    background: rgba(var(--colorWhite),.4);
     box-shadow: inset 0 2px 2px rgba(var(--colorBlack), .25), 0 1px 0 rgba(var(--colorWhite), 1);
 }
