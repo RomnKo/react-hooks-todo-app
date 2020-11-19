@@ -5,7 +5,7 @@ import TodoForm from './components/Form';
 
 function App() {
     const [todos, setTodos] = useState([]);
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    // const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
     useEffect(() => {
         console.log('loaded todos');
@@ -14,33 +14,30 @@ function App() {
             .then((json) => setTodos(json))
     }, []);
 
-    useEffect(() => {
-        console.log('resized');
-        window.addEventListener('resize', handleResize);
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        }
-    }, []);
+    // useEffect(() => {
+    //     console.log('resized');
+    //     window.addEventListener('resize', handleResize);
+    //     return () => {
+    //         window.removeEventListener('resize', handleResize);
+    //     }
+    // }, []);
 
-    const handleResize = () => {
-        setWindowWidth(window.innerWidth);
-    }
+    // const handleResize = () => {
+    //     setWindowWidth(window.innerWidth);
+    // }
 
     const addTodo = title => {
-        console.log(title);
-        const newTodos = [...todos, { title }];
+        const newTodos = [{ title }, ...todos];
         setTodos(newTodos);
     }
 
     const completeTodo = index => {
-        console.log(index);
         const newTodos = [...todos];
         newTodos[index].complete = (!newTodos[index].complete);
         setTodos(newTodos);
     }
 
     const removeTodo = index => {
-        console.log(index);
         const newTodos = [...todos];
         newTodos.splice(index, 1);
         setTodos(newTodos);
@@ -48,7 +45,9 @@ function App() {
 
     return (
         <div className="app">
-            <div>JUST (to)DO IT!</div>{windowWidth}
+            <h1>JUST (to)DO IT!</h1>
+            {/* {windowWidth} */}
+            <TodoForm addTodo={addTodo} />
             <div className="todo-list">
                 {todos.map((todo, index) => (
                     <Todo
@@ -58,7 +57,6 @@ function App() {
                         completeTodo={completeTodo}
                         removeTodo={removeTodo} />
                 ))}
-                <TodoForm addTodo={addTodo} />
             </div>
         </div>
     )

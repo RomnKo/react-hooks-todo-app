@@ -3,16 +3,20 @@
     --colorWhite: 245,245,245;
     --boxShadow: 0 2px 4px rgba(var(--colorBlack), 0.1);
 }
+
 @media (prefers-color-scheme: dark) {
     .app {
-        color: var(--colorWhite);
-        background: linear-gradient(0deg, rgb(080,093,095) 0%, rgb(123 115 097) 100%);
+        color: rgb(var(--colorWhite));
+        /* background: linear-gradient(0deg, rgb(080,093,095) 0%, rgb(123 115 097) 100%); */
+        background: rgb(var(--colorBlack));
     }
 }
+
 .app {
-    background: linear-gradient(0deg, rgb(180,193,195) 0%, rgb(223 215 197) 100%);
-    color: var(--colorBlack);
+    background: linear-gradient(0deg, rgb(180,193,195) 0%, rgba(223, 215, 197, .7) 100%);
+    color: rgb(var(--colorBlack));
     background-attachment: fixed;
+    background-attachment: scroll;
     padding: 30px;
     margin: 0 auto;
     min-height: calc(100vh - 60px);
@@ -23,20 +27,9 @@
     letter-spacing: 1px;
 }
 
-.todo-list {
-    max-width: 600px;
-}
-
-.todo {
-    background: rgba(255,255,255,.2);
-    border-radius: 5px;
-    padding: 15px;
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    box-shadow: var(--boxShadow), inset 0 1px rgba(255,255,255,.2);
-    transition: ease 120ms background;
+h1 {
+    color: inherit;
+    text-align: center;
 }
 
 .input {
@@ -46,6 +39,7 @@
     font-weight: inherit;
     line-height: inherit;
     letter-spacing: inherit;
+    color: inherit;
     background: rgba(255,255,255,.4);
     box-shadow: var(--boxShadow);
     outline: none;
@@ -53,6 +47,9 @@
     border: 0;
     padding: 15px;
     border-radius: 5px;
+    max-width: 600px;
+    display: flex;
+    margin: 0 auto 50px;
     transition: ease 120ms background, ease 120ms box-shadow;
 }
 
@@ -61,17 +58,39 @@
     box-shadow: 0 4px 4px rgba(var(--colorBlack), 0.2);
 }
 
-.input:active, .input:focus, .button:active, .button:focus {
+.input:active, .input:focus {
     background: rgba(255,255,255,.9);
     box-shadow: 0 4px 8px rgba(var(--colorBlack), 0.3);
 }
 
-.button-wrapper {
+.todo-list {
     display: grid;
+    align-items: top;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 3fr));
+    gap: 25px;
+}
+
+.todo {
+    color: inherit;
+    background: rgba(255,255,255,.2);
+    border-radius: 5px;
+    padding: 15px;
+    display: grid;
+    box-shadow: var(--boxShadow), inset 0 1px rgba(255,255,255,.2);
+    transition: ease 120ms background;
+}
+
+.button-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-end;
+    gap: 5px;
     text-decoration: none;
+    margin-top: 25px;
 }
 
 button {
+    color: inherit;
     font-family: inherit;
     font-size: 13px;
     font-weight: inherit;
@@ -82,11 +101,13 @@ button {
     padding: 2px 12px;
     border: none;
     background: rgba(255,255,255,.4);
-    border-radius: 50px;
+    border-radius: 5px;
     cursor: pointer;
+    flex-grow: 1;
+    box-shadow: 0 1px 1px rgba(var(--colorBlack), .05), inset 0 1px 0 rgba(var(--colorWhite), .2);
     transition: ease 120ms background, ease 120ms box-shadow;
 }
-
-button:last-of-type {
-    margin-top: 5px;
+button:active {
+    background: rgba(255,255,255,.4);
+    box-shadow: inset 0 2px 2px rgba(var(--colorBlack), .25), 0 1px 0 rgba(var(--colorWhite), 1);
 }

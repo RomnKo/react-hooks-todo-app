@@ -7,10 +7,9 @@ export default function Todo({
         removeTodo
     }) {
     return(
-        <div 
-            className="todo" 
-            style={{textDecoration: todo.complete ? 'line-through': ''}}>
-            {todo.title}
+        <div className="todo">
+            <span style={{ textDecoration: todo.complete ? 'line-through' : '' }}>
+                {todo.title}</span>
             <div className="button-wrapper">
                 <button onClick={() => completeTodo(index)}>Complete</button>
                 <button onClick={() => removeTodo(index)}>Delete</button>
