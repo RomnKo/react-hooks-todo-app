@@ -2,13 +2,21 @@
     --colorBlack: 40,40,40;
     --colorWhite: 255,255,255;
     --boxShadow: 0 2px 4px rgba(var(--colorBlack), 0.1);
+    --color: 188, 11%, 73%;
 }
 
 .app {
-    background: linear-gradient(0deg, rgb(180,193,195) 0%, rgba(223, 215, 197, .7) 100%);
+    background: #B4C1C3;
+    background: 
+        linear-gradient(135deg, hsl(var(--color)) 25%, transparent 25%) -50px 0,
+        linear-gradient(225deg, hsl(var(--color)) 25%, transparent 25%) -50px 0,
+        linear-gradient(315deg, hsl(var(--color)) 25%, transparent 25%),
+        linear-gradient(45deg, hsl(var(--color)) 25%, transparent 25%),
+        linear-gradient(45deg, hsl(var(--color)) 0%, hsl(188, 11%, 77%) 100%);
+    background-size: 100px 100px;
+    background-color: hsla(188, 11%, 77%, 95%);
     color: rgb(var(--colorBlack));
     background-attachment: fixed;
-    background-attachment: scroll;
     padding: 30px;
     margin: 0 auto;
     min-height: calc(100vh - 60px);
